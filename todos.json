@@ -1,10 +1,4 @@
 {
   "name": "",
-  "rows": [
-    {
-      "id": 1,
-      "name": "today",
-      "done": true
-    }
-  ]
+  "done": true
 }

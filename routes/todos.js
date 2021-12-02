@@ -4,18 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const router = express.Router();
 
 //remove the string jadi variabel kl disini, as mock database
-const todos = [
-  {
-    name: "",
-    rows: [
-      {
-        id: 1,
-        name: "today",
-        done: true,
-      },
-    ],
-  },
-];
+const todos = [];
 
 //all routes in here are starting with /todos
 router.get("/", (req, res) => {
@@ -36,7 +25,10 @@ router.post("/", (req, res) => {
 
 //retrieve the value of id using callback funtion?
 router.get("/:id", (req, res) => {
-  res.send("GET the ID ROUTE");
+  const { id } = req.params;
+  const foundTodo = todos.find((todo) => todo.id === id);
+
+  res.send(foundTodo);
 });
 
 export default router;
