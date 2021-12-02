@@ -24,14 +24,14 @@ router.post("/", (req, res) => {
 //retrieve the value of id using callback function?
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  const foundTodo = todos.find((todo) => todo.id === id);
+  const foundTodo = todos.find((todo) => todo.id == id);
   res.send(foundTodo);
 });
 
 //menghapus nama Agenda dengan spesific id atau logic nya; id nya 'g sama' dengan dia 'name' dibiarin, tetep di array.
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  todos = todos.filter((todo) => todo.id !== id);
+  todos = todos.filter((todo) => todo.id != id);
 
   res.send(`Todo with the id ${id} is deleted from the database`);
 });
