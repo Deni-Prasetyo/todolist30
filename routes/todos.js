@@ -49,4 +49,14 @@ router.delete("/:id", (req, res) => {
   });
 });
 
+//update
+router.patch("/:id", (req, res) => {
+  const { id } = req.params;
+  const { text } = req.body;
+  const todo = todos.find((todo) => todo.id === id);
+  if (text) {
+    todo.text = text;
+  }
+});
+
 export default router;
