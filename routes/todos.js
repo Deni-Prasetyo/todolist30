@@ -31,7 +31,7 @@ router.get("/:id", (req, res) => {
 //menghapus nama Agenda dengan spesific id atau logic nya; id nya 'g sama' dengan dia 'name' dibiarin, tetep di array.
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  todos = todos.find.filter((todo) => todo.id !== id);
+  todos = todos.filter((todo) => todo.id !== id);
 
   res.send(`Todo with the id ${id} is deleted from the database`);
 });
