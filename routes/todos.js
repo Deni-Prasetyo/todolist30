@@ -18,7 +18,7 @@ let todos = {
 //user send data from app to the server that data being the values in the form todos
 //from the client to the server, for the user to be created "as todo list"
 
-router.post("/", (req, res) => {
+const postNote = (req, res) => {
   const { text, done } = req.body;
   const id = Math.floor(Math.random() * 100);
   todos.rows.push({
@@ -30,7 +30,9 @@ router.post("/", (req, res) => {
     id: id,
     success: true,
   });
-});
+};
+
+router.post("/", postNote);
 
 //retrieve the value of id using callback function?
 router.get("/", (req, res) => {
