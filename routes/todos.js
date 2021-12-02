@@ -1,54 +1,12 @@
 import express from "express";
-// import { v4 as uuidv4 } from "uuid";
+import { postNote, getNote, deleteNote } from "../controllers/todos.js";
 
 const router = express.Router();
 
-//remove the string jadi variabel kl disini, as mock database
-let todos = {
-  name: "todos",
-  rows: [
-    {
-      id: 1,
-      name: "today",
-      done: true,
-    },
-  ],
-};
-
-//user send data from app to the server that data being the values in the form todos
-//from the client to the server, for the user to be created "as todo list"
-
-const postNote = (req, res) => {
-  const { text, done } = req.body;
-  const id = Math.floor(Math.random() * 100);
-  todos.rows.push({
-    id: id,
-    text: text,
-    done: done,
-  });
-  res.send({
-    id: id,
-    success: true,
-  });
-};
-
 router.post("/", postNote);
 
-//retrieve the value of id using callback function?
-router.get("/", (req, res) => {
-  res.send(todos);
-});
+router.get("/", getNote);
 
-//menghapus nama Agenda dengan spesific id atau logic nya; id nya 'g sama' dengan dia 'name' dibiarin, tetep di array.
-router.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  const index = todos.rows.findIndex((x) => x.id === parseInt(id));
-  todos.rows.splice(index, 1);
-
-  res.send({
-    id: id,
-    delete: true,
-  });
-});
+router.delete("/:id", deleteNote);
 
 export default router;
