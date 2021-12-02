@@ -1,10 +1,23 @@
 import express from "express";
 import bodyParser from "body-parser";
 
+import todosRoutes from "./routes/todos.js";
+
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
+
+app.use("/todos", todosRoutes);
+
+app.get("/", (req, res) => {
+  console.log("[COBA]!");
+
+  res.send("Hello WORLD!!");
+});
+
+app.listen(PORT, () => console.log(`Server running on port: http://localhost:${PORT}`));
+
 // const app = express();
 // const port = 3000;
 
