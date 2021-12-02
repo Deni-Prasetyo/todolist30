@@ -29,10 +29,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const todo = req.body;
   //   console.log("POST ROUTE REACHED");
-  const todoId = uuidv4();
-  const todoWithId = { ...todo, Id: todoId };
   //   console.log(req.body);
-  todos.push(todoWithId);
+  todos.push({ ...todo, Id: uuidv4() });
   res.send(`Agenda ${todo.name} masuk ke dalam database`);
 });
 export default router;
