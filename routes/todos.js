@@ -1,4 +1,5 @@
 import express from "express";
+import { v4 as uuidv4 } from "uuid";
 
 const router = express.Router();
 
@@ -28,8 +29,10 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const todo = req.body;
   //   console.log("POST ROUTE REACHED");
+  const todoId = uuidv4();
+  const todoWithId = { ...todo, Id: todoId };
   //   console.log(req.body);
-  todos.push(todo);
+  todos.push(todoWithId);
   res.send(`Agenda ${todo.name} masuk ke dalam database`);
 });
 export default router;
