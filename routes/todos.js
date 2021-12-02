@@ -33,4 +33,10 @@ router.post("/", (req, res) => {
   todos.push({ ...todo, Id: uuidv4() });
   res.send(`Agenda ${todo.name} masuk ke dalam database`);
 });
+
+//retrieve the value of id using callback funtion?
+router.get("/:id", (req, res) => {
+  res.send("GET the ID ROUTE");
+});
+
 export default router;
