@@ -1,13 +1,13 @@
 import express from "express";
-// import bodyParser from "body-parser"; usang, deprecated
-import todosRoutes from "./routes/todos.js";
+// import bodyParser from "body-parser"; udah usang
 
-//middleware untuk body, parse ke JSON dulu
-app.use(express.json());
+import todosRoutes from "./routes/todos.js";
 
 const app = express();
 const PORT = 3000;
 
+//middleware untuk body, parse ke JSON dulu
+app.use(express.json());
 // app.use(bodyParser.json());
 
 app.use("/todos", todosRoutes);
@@ -24,6 +24,9 @@ app.listen(PORT, () => console.log(`Server running on port: http://localhost:${P
 // const port = 3000;
 
 // import todosRoutes from "./routes/todos.js";
+
+// //middleware untuk body, parse ke JSON dulu
+// app.use(express.json());
 
 // app.use("/todos", todosRoutes);
 
