@@ -17,18 +17,13 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const todo = req.body;
-  //   console.log("POST ROUTE REACHED");
-  //   console.log(req.body);
   todos.push({ ...todo, Id: uuidv4() });
   res.send(`Agenda ${todo.name} masuk ke dalam database`);
 });
 
 //retrieve the value of id using callback funtion?
 router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const foundTodo = todos.find((todo) => todo.id === id);
-
-  res.send(foundTodo);
+  res.send("THE FET ID ROUTE");
 });
 
 export default router;
